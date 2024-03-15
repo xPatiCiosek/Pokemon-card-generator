@@ -13,6 +13,8 @@ fetch(url)
     text.innerText += data.name;
     const id = document.getElementById('id');
     id.innerText += data.id;
+    const hp = document.getElementById('hp');
+    hp.innerText += data.stats[0].base_stat;
     const height = document.getElementById('height');
     height.innerText += data.height;
     const weight = document.getElementById('weight');
