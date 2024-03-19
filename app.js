@@ -11,6 +11,7 @@ fetch(url)
   .then(data => {
     console.log(data); 
       renderPokeData(data);
+      renderMoves(getMoves(data));
 
   })
   .catch(error => {
@@ -21,7 +22,7 @@ fetch(url)
 
 const movesContainer = document.getElementById('moves-container');
 
-function getMovesList(data){
+function getMoves(data){
   const movesList = []
   data.moves.forEach(function(move){
     movesList.push(move.move.name);
@@ -30,20 +31,20 @@ function getMovesList(data){
   return movesList;
 }
 
-function getMoves(movesList){
+function renderMoves(movesList){
   const moves = []
   let index1 = Math.floor(Math.random() * movesList.length -1);
   let index2;
   do {
       index2 = Math.floor(Math.random() * movesList.length -1);
   } while (index2 === index1);
-  console.log(movesList[index1], movesList[index2]);
   moves.push(movesList[index1], movesList[index2]);
-  renderMoves(moves);
-  return moves;
-}
 
-function renderMoves(moves){
+  //remove rendered moves before assigning new ones
+  while (movesContainer.firstChild) {
+    movesContainer.removeChild(movesContainer.firstChild);
+  };
+
   moves.forEach( move =>{
     const newDiv = document.createElement('div');
     const moveSpan = document.createElement('span');
