@@ -9,26 +9,7 @@ fetch(url)
   })
   .then(data => {
     console.log(data); 
-    const name = document.getElementById('name');
-    name.innerText += data.name;
-    const id = document.getElementById('id');
-    id.innerText += data.id;
-    const hp = document.getElementById('hp');
-    hp.innerText += data.stats[0].base_stat;
-    const height = document.getElementById('height');
-    height.innerText += data.height;
-    const weight = document.getElementById('weight');
-    weight.innerText += data.weight;
-    const imgContainer = document.getElementById('img-container')
-    let img = document.createElement('img');
-    img.classList.add('img');
-    // img.src = data.sprites.front_default;
-    console.log(data.sprites.other)
-    img.src = data.sprites.other['official-artwork'].front_default;
-    imgContainer.appendChild(img);
-    getMovesList(data);
-
-    getMoves(getMovesList(data))
+      renderPokeData(data);
 
   })
   .catch(error => {
@@ -70,12 +51,10 @@ function renderMoves(moves){
   })
 }
   
- 
-function getPokeData(data){
-  const name = data.name;
-  const id = data.id;
-  const hp = data.stats[0].base_stat;
-  const height = data.height;
-  const weight= data.weight;
-  const img = data.sprites.other['official-artwork'].front_default;
+function renderPokeData(data){
+  document.getElementById('name').innerText = data.name;
+  document.getElementById('id').innerHTML = 'pokedex nr. ' + data.id;
+  document.getElementById('hp').innerHTML = 'HP: ' + data.stats[0].base_stat;
+  document.getElementById('height').innerHTML = 'HT: ' + data.height;
+  document.getElementById('weight').innerHTML = 'WT: ' + data.weight;
 }
