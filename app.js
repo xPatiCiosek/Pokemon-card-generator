@@ -1,24 +1,31 @@
 function fetchData(value){
   const url = `https://pokeapi.co/api/v2/pokemon/${value}`;
 
-fetch(url)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data); 
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data); 
       renderPokeData(data);
+      renderNewImg(data);
       renderMoves(getMoves(data));
 
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
 }
- 
+
+function renderNewImg(data){
+  
+  const img = document.getElementById('current-pokemon');
+  img.src = data.sprites.other['official-artwork'].front_default;
+  
+}
 
 const movesContainer = document.getElementById('moves-container');
 
@@ -61,6 +68,7 @@ function renderPokeData(data){
   document.getElementById('height').innerHTML = 'HT: ' + data.height;
   document.getElementById('weight').innerHTML = 'WT: ' + data.weight;
 }
+
 document.getElementById('search-btn').addEventListener('click', function(){
   let input = document.getElementById('input');
   fetchData(input.value);
