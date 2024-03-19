@@ -8,35 +8,33 @@
 </head>
 <body>
     <h1>Pokemon Card Generator</h1>
-    <button id="random-btn">Random</button>
+
+    <input id="input" type="text" placeholder="Search by Pokemon name or id...">
     <button id="search-btn">Search</button>
+    <button id="random-btn">Random</button>
+
     <main class="card">
         <div id="card-header">
             <span id="name"> </span>
-            <!-- <span id="hp">HP: </span> -->
         </div>
         
         <div id="img-container">
+            <img id="current-pokemon" alt="current Pokemon">
             <div class="type"></div>
         </div>
+
         <div id="messurments-container">
-            <span id="hp">HP: </span>
+            <span id="hp"></span>
             <div>
-                <span id="height">HT: </span>
-                <span id="weight">WT: </span>
+                <span id="height"></span>
+                <span id="weight"></span>
             </div>
         </div>
-        <div id="moves-container">
-            <!-- <div class="move">move<span></span><span>power</span></div>
-            <div class="move">move<span></span><span>power</span></div> -->
-        </div>
+        <div id="moves-container"></div>
         <div id="card-footer">
-            <div id="id">id: </div>
+            <div id="id"></div>
         </div>
     </main>
-    
-
-
     
     <script src="app.js"></script>
 </body>
