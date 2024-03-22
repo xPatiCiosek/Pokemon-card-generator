@@ -37,6 +37,9 @@ function fetchMoveData(value){
     });
 }
 
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 function renderPokeType(data){
   let type = data.types[0].type.name;
   let img = document.getElementById('type');
