@@ -1,3 +1,5 @@
+const POKEMON = 'pokemon/';
+const MOVE = 'move/';
 function fetchPokeData(value){
   const url = `https://pokeapi.co/api/v2/pokemon/${value}`;
 
@@ -90,24 +92,16 @@ function renderPokeType(data){
 }
 
 function renderNewImg(data){
-  
   const img = document.getElementById('current-pokemon');
   img.src = data.sprites.other['official-artwork'].front_default;
-  
 }
-
-const movesContainer = document.getElementById('moves-container');
 
 function getMoves(data){
   const movesList = []
   data.moves.forEach(function(move){
     movesList.push(move.move.name);
   })
-  console.log(movesList)
-  return movesList;
-}
 
-function renderMoves(movesList){
   const moves = []
   let index1 = Math.floor(Math.random() * movesList.length -1);
   let index2;
