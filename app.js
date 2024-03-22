@@ -37,6 +37,18 @@ function fetchMoveData(value){
       const nameSpan = document.createElement('span');
       nameSpan.innerText = capitalize(data.name);
 
+      let powerSpan;
+      if(data.power===null){
+        powerSpan = document.createElement('p');
+        powerSpan.innerText = data.effect_entries[0].short_effect;
+        powerSpan.classList.add('description');
+      } else {
+        powerSpan = document.createElement('span');
+        powerSpan.innerText = data.power;
+        powerSpan.classList.add('power');
+      }
+      
+
       const typeSpan = document.createElement('span');
     })
     .catch(error => {
