@@ -50,6 +50,18 @@ function fetchMoveData(value){
       
 
       const typeSpan = document.createElement('span');
+      
+      const img = document.createElement('img');
+      img.classList.add('move-img');
+      const type = data.type.name;
+      img.src = './icons/' + type + '.png';
+      typeSpan.appendChild(img)
+
+      
+      newDiv.appendChild(typeSpan);
+      newDiv.appendChild(nameSpan);
+      newDiv.appendChild(powerSpan);
+      movesContainer.appendChild(newDiv); 
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
