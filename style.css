@@ -53,7 +53,7 @@
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     background-image: linear-gradient(to top, rgb(228, 228, 228), rgb(180, 180, 180));
-    width: 165px;
+    width: 330px;
     font-size: 10px;
     display: flex;
     justify-content: space-between;
@@ -62,23 +62,50 @@
     margin-top: 0px;
 }
 #messurments-container span{
-    margin-right: 10px;
+    margin-right: 15px;
 }
 #hp{
-    margin-left: 10px;
-}
-#moves-container{
-    height: 90px;
     margin-left: 15px;
+}
+
+#moves-container{
+    height: 140px;
+    margin-left: 25px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    font-size: 20px;
     font-weight: bold;
+    margin-top: 0px;
+}
+.description{
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-left: 0px;
+    margin-right: 25px;
+    gap: 5px;
+}
+.power{
+    margin-left: 20px;
+}
+.move-img{
+    height: 20px;
+    width: 20px;
+}
+.move-div{
+    gap: 5px;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 #card-footer{
-    font-size: 10px;
-    margin-right: 15px;
+    height:20px ;
+    font-size: 12px;
+    margin-right: 25px;
+    margin-bottom: 8px;
     align-self: end;
     display: flex;
     justify-content: end;
@@ -89,3 +116,4 @@ button{
     border: 1px solid grey;
     background-image: linear-gradient(43deg, #c9c9c9 0%, #cccbcb 46%, #b7b7b7 100%);
 }
+
