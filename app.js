@@ -1,4 +1,4 @@
-function fetchData(value){
+function fetchPokeData(value){
   const url = `https://pokeapi.co/api/v2/pokemon/${value}`;
 
   fetch(url)
@@ -11,22 +11,24 @@ function fetchData(value){
     .then(data => {
       console.log(data); 
       renderPokeData(data);
+      renderPokeType(data);
       renderNewImg(data);
       renderMoves(getMoves(data));
-      renderType(data);
-
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+}
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
     });
 }
 
-function renderType(data){
+function renderPokeType(data){
   let type = data.types[0].type.name;
-  console.log(type);
   let img = document.getElementById('type');
   img.src = './icons/' + type + '.png';
-
 }
 
 function renderNewImg(data){
