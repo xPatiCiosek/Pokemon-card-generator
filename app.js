@@ -69,31 +69,24 @@ function renderMoves(movesList){
       index2 = Math.floor(Math.random() * movesList.length -1);
   } while (index2 === index1);
   moves.push(movesList[index1], movesList[index2]);
+  return moves;
+}
+
+function renderMoves(moves){
 
   //remove rendered moves before assigning new ones
   while (movesContainer.firstChild) {
     movesContainer.removeChild(movesContainer.firstChild);
   };
 
+  //for each move fetchData / get name power type
   moves.forEach( move =>{
-    const newDiv = document.createElement('div');
-    const moveSpan = document.createElement('span');
-    moveSpan.innerText = move;
-    newDiv.appendChild(moveSpan);
-    movesContainer.appendChild(newDiv); 
+    fetchMoveData(move);
   })
-}
-  
-function renderPokeData(data){
-  document.getElementById('name').innerText = data.name;
-  document.getElementById('id').innerHTML = 'pokedex nr. ' + data.id;
-  document.getElementById('hp').innerHTML = 'HP: ' + data.stats[0].base_stat;
-  document.getElementById('height').innerHTML = 'HT: ' + data.height;
-  document.getElementById('weight').innerHTML = 'WT: ' + data.weight;
 }
 
 document.getElementById('search-btn').addEventListener('click', function(){
   let input = document.getElementById('input');
-  fetchData(input.value);
+  fetchPokeData(input.value);
   input.value = '';
 });
