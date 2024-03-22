@@ -40,6 +40,18 @@ function fetchMoveData(value){
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+function renderPokeData(data){
+  document.getElementById('name').innerText = capitalize(data.name);
+  document.getElementById('id').innerHTML = 'pokedex nr. ' + data.id;
+  document.getElementById('hp').innerHTML = 'HP: ' + data.stats[0].base_stat;
+  document.getElementById('height').innerHTML = 'HT: ' + data.height;
+  document.getElementById('weight').innerHTML = 'WT: ' + data.weight;
+}
+function renderMoveType(data){
+  const type = data.name;
+
+}
 function renderPokeType(data){
   let type = data.types[0].type.name;
   let img = document.getElementById('type');
