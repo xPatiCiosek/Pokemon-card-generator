@@ -31,6 +31,13 @@ function fetchMoveData(value){
     })
     .then(data => {
       console.log(data); 
+      const newDiv = document.createElement('div');
+      newDiv.classList.add('move-div');
+
+      const nameSpan = document.createElement('span');
+      nameSpan.innerText = capitalize(data.name);
+
+      const typeSpan = document.createElement('span');
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
