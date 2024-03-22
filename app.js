@@ -19,6 +19,18 @@ function fetchPokeData(value){
       console.error('There was a problem with the fetch operation:', error);
     });
 }
+const movesContainer = document.getElementById('moves-container');
+function fetchMoveData(value){
+  const url = `https://pokeapi.co/api/v2/move/${value}`;
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data); 
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
