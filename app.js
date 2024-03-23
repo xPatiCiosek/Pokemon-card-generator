@@ -33,6 +33,8 @@ async function fetchFromTwoAPIs(pokeName) {
 
       // Do something with data from both APIs...
       renderPokeCard(pokeData);
+      renderMovesCard(move1Data);
+      renderMovesCard(move2Data);
       
   } catch (error) {
       console.error('Error:', error);
