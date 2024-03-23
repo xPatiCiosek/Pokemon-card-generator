@@ -17,6 +17,20 @@ async function fetchData(baseURL ,endpoint, value){
   }
 }
 
+async function fetchFromTwoAPIs(pokeName) {
+  try {
+      const pokeData = await fetchData(baseURL, POKEMON, pokeName);
+      console.log('Data for Pokemon:', pokeData);
+
+
+      // Do something with data from both APIs...
+      renderPokeCard(pokeData);
+      
+  } catch (error) {
+      console.error('Error:', error);
+  }
+}
+
       const nameSpan = document.createElement('span');
       nameSpan.innerText = capitalize(data.name);
 
