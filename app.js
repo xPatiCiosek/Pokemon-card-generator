@@ -39,38 +39,39 @@ async function fetchFromTwoAPIs(pokeName) {
   }
 }
 
-      const nameSpan = document.createElement('span');
-      nameSpan.innerText = capitalize(data.name);
+function renderMovesCard(data){
 
-      let powerSpan;
-      if(data.power===null){
-        powerSpan = document.createElement('p');
-        powerSpan.innerText = data.effect_entries[0].short_effect;
-        powerSpan.classList.add('description');
-      } else {
-        powerSpan = document.createElement('span');
-        powerSpan.innerText = data.power;
-        powerSpan.classList.add('power');
-      }
-      
+  const newDiv = document.createElement('div');
+  newDiv.classList.add('move-div');
 
-      const typeSpan = document.createElement('span');
-      
-      const img = document.createElement('img');
-      img.classList.add('move-img');
-      const type = data.type.name;
-      img.src = './icons/' + type + '.png';
-      typeSpan.appendChild(img)
+  const nameSpan = document.createElement('span');
+  nameSpan.innerText = capitalize(data.name);
 
-      
-      newDiv.appendChild(typeSpan);
-      newDiv.appendChild(nameSpan);
-      newDiv.appendChild(powerSpan);
-      movesContainer.appendChild(newDiv); 
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
+  let powerSpan;
+  if(data.power===null){
+    powerSpan = document.createElement('p');
+    powerSpan.innerText = data.effect_entries[0].short_effect;
+    powerSpan.classList.add('description');
+  } else {
+    powerSpan = document.createElement('span');
+    powerSpan.innerText = data.power;
+    powerSpan.classList.add('power');
+  }
+  
+
+  const typeSpan = document.createElement('span');
+  
+  const img = document.createElement('img');
+  img.classList.add('move-img');
+  const type = data.type.name;
+  img.src = './icons/' + type + '.png';
+  typeSpan.appendChild(img)
+
+  
+  newDiv.appendChild(typeSpan);
+  newDiv.appendChild(nameSpan);
+  newDiv.appendChild(powerSpan);
+  movesContainer.appendChild(newDiv); 
 }
 
 function capitalize(string) {
