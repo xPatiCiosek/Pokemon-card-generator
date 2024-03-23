@@ -22,6 +22,14 @@ async function fetchFromTwoAPIs(pokeName) {
       const pokeData = await fetchData(baseURL, POKEMON, pokeName);
       console.log('Data for Pokemon:', pokeData);
 
+      const moves = getMoves(pokeData);
+
+      const value1promise = fetchData(baseURL,MOVE,moves[0]);
+      const value2promise = fetchData(baseURL,MOVE,moves[1]);
+      const [move1Data, move2Data] = await Promise.all([value1promise,value2promise]);
+
+      console.log('Data for move 1:', move1Data);
+      console.log('Data for move 2:', move2Data);
 
       // Do something with data from both APIs...
       renderPokeCard(pokeData);
