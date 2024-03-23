@@ -118,10 +118,14 @@ function renderMoveType(data){
   const type = data.name;
 
 }
-function renderPokeType(data){
+
+//rendering the icon type and card color
+function renderType(data){
   let type = data.types[0].type.name;
   let img = document.getElementById('type');
   img.src = './icons/' + type + '.png';
+  //change card background color dependant on type
+  changeCardStyle(type);
 }
 
 function renderNewImg(data){ 
