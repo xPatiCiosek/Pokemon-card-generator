@@ -1,3 +1,4 @@
+const movesContainer = document.getElementById('moves-container');
 const baseURL = `https://pokeapi.co/api/v2/`;
 const POKEMON = 'pokemon/';
 const MOVE = 'move/';
@@ -88,6 +89,7 @@ function renderPokeData(data){
   document.getElementById('height').innerHTML = 'HT: ' + data.height;
   document.getElementById('weight').innerHTML = 'WT: ' + data.weight;
 }
+
 function renderMoveType(data){
   const type = data.name;
 
@@ -98,9 +100,9 @@ function renderPokeType(data){
   img.src = './icons/' + type + '.png';
 }
 
-function renderNewImg(data){
+function renderNewImg(data){ 
   const img = document.getElementById('current-pokemon');
-  img.src = data.sprites.other['official-artwork'].front_default;
+  img.src = data.sprites.other['official-artwork'].front_default; 
 }
 
 //remove Previous Moves Render
@@ -115,7 +117,7 @@ function getMoves(data){
   data.moves.forEach(function(move){
     movesList.push(move.move.name);
   })
-
+  
   const moves = []
   let index1 = Math.floor(Math.random() * movesList.length -1);
   let index2;
@@ -126,21 +128,14 @@ function getMoves(data){
   return moves;
 }
 
-function renderMoves(moves){
-
-  //remove rendered moves before assigning new ones
-  while (movesContainer.firstChild) {
-    movesContainer.removeChild(movesContainer.firstChild);
-  };
-
-  //for each move fetchData / get name power type
-  moves.forEach( move =>{
-    fetchMoveData(move);
-  })
-}
-
 document.getElementById('search-btn').addEventListener('click', function(){
   let input = document.getElementById('input');
-  fetchPokeData(input.value);
+  fetchFromTwoAPIs(input.value);
   input.value = '';
 });
+
+function renderPokeCard(data){
+  renderPokeData(data);
+  renderPokeType(data);
+  renderNewImg(data);
+}
