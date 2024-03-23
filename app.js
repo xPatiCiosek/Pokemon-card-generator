@@ -33,6 +33,7 @@ async function fetchFromTwoAPIs(pokeName) {
 
       // Do something with data from both APIs...
       renderPokeCard(pokeData);
+      removeMoveRender();
       renderMovesCard(move1Data);
       renderMovesCard(move2Data);
       
@@ -100,6 +101,13 @@ function renderPokeType(data){
 function renderNewImg(data){
   const img = document.getElementById('current-pokemon');
   img.src = data.sprites.other['official-artwork'].front_default;
+}
+
+//remove Previous Moves Render
+function removeMoveRender(){
+  while (movesContainer.firstChild) {
+    movesContainer.removeChild(movesContainer.firstChild);
+  };
 }
 
 function getMoves(data){
