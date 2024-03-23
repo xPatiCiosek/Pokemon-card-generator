@@ -93,9 +93,8 @@ function renderMovesCard(data){
   img.classList.add('move-img');
   const type = data.type.name;
   img.src = './icons/' + type + '.png';
-  typeSpan.appendChild(img)
+  typeSpan.appendChild(img);
 
-  
   newDiv.appendChild(typeSpan);
   newDiv.appendChild(nameSpan);
   newDiv.appendChild(powerSpan);
@@ -112,6 +111,12 @@ function renderPokeData(data){
   document.getElementById('hp').innerHTML = 'HP: ' + data.stats[0].base_stat;
   document.getElementById('height').innerHTML = 'HT: ' + data.height;
   document.getElementById('weight').innerHTML = 'WT: ' + data.weight;
+}
+
+function renderPokeCard(data){
+  renderPokeData(data);
+  renderType(data);
+  renderNewImg(data);
 }
 
 function renderMoveType(data){
