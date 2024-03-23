@@ -1,40 +1,21 @@
+const baseURL = `https://pokeapi.co/api/v2/`;
 const POKEMON = 'pokemon/';
 const MOVE = 'move/';
-function fetchPokeData(value){
-  const url = `https://pokeapi.co/api/v2/pokemon/${value}`;
 
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data); 
-      renderPokeData(data);
-      renderPokeType(data);
-      renderNewImg(data);
-      renderMoves(getMoves(data));
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
+async function fetchData(baseURL ,endpoint, value){
+  try {
+    const url = new URL(`${baseURL}${endpoint}${value}`);
+
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+  }
 }
-const movesContainer = document.getElementById('moves-container');
-function fetchMoveData(value){
-  const url = `https://pokeapi.co/api/v2/move/${value}`;
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data); 
-      const newDiv = document.createElement('div');
-      newDiv.classList.add('move-div');
 
       const nameSpan = document.createElement('span');
       nameSpan.innerText = capitalize(data.name);
