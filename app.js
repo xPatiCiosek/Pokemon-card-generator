@@ -161,14 +161,23 @@ function getMoves(data){
   return moves;
 }
 
-document.getElementById('search-btn').addEventListener('click', function(){
-  let input = document.getElementById('input');
-  fetchFromTwoAPIs(input.value);
-  input.value = '';
-});
+function btnInit() {
 
-function renderPokeCard(data){
-  renderPokeData(data);
-  renderPokeType(data);
-  renderNewImg(data);
+  function handleSearchBtnClick() {
+    let input = document.getElementById('input');
+    fetchFromTwoAPIs(input.value);
+    input.value = '';
+  }
+
+  function handleRandomBtnClick() {
+    const num = Math.floor(Math.random() * 1025) + 1;
+    fetchFromTwoAPIs(num);
+  }
+
+  document.getElementById('search-btn').addEventListener('click', handleSearchBtnClick);
+  document.getElementById('random-btn').addEventListener('click', handleRandomBtnClick);
+
 }
+
+btnInit();
+
