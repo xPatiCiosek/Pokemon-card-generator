@@ -177,6 +177,11 @@ function btnInit() {
   document.getElementById('search-btn').addEventListener('click', handleSearchBtnClick);
   document.getElementById('random-btn').addEventListener('click', handleRandomBtnClick);
 
+  document.getElementById('input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      handleSearchBtnClick();
+    }
+  });
 }
 
 btnInit();
