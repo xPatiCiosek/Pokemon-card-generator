@@ -79,37 +79,27 @@ function renderMovesCard(data){
     return powerElement;
   }
 
+  function getTypeImg(type){    
+    const img = document.createElement('img');
+    img.classList.add('move-img');
+
+    img.src = './icons/' + type + '.png';
+  
+    return img;
+  }
+
   const newDiv = document.createElement('div');
   newDiv.classList.add('move-div');
 
   const powerElement = handleNullPower(data.power);
+  const typeImg = getTypeImg(data.type.name);
 
   const nameSpan = document.createElement('span');
   nameSpan.innerText = capitalize(data.name);
 
-  let powerSpan;
-  if(data.power===null){
-    powerSpan = document.createElement('p');
-    powerSpan.innerText = data.effect_entries[0].short_effect;
-    powerSpan.classList.add('description');
-  } else {
-    powerSpan = document.createElement('span');
-    powerSpan.innerText = data.power;
-    powerSpan.classList.add('power');
-  }
-  
-
-  const typeSpan = document.createElement('span');
-  
-  const img = document.createElement('img');
-  img.classList.add('move-img');
-  const type = data.type.name;
-  img.src = './icons/' + type + '.png';
-  typeSpan.appendChild(img);
-
-  newDiv.appendChild(typeSpan);
+  newDiv.appendChild(typeImg);
   newDiv.appendChild(nameSpan);
-  newDiv.appendChild(powerSpan);
+  newDiv.appendChild(powerElement);
   movesContainer.appendChild(newDiv); 
 }
 
