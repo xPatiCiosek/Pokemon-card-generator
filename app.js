@@ -1,7 +1,7 @@
 const gradients = {
   'electric' : "linear-gradient(43deg, #ba8a08 0%, #d1a30b 46%, #dcc266 100%)",
   'bug' : "linear-gradient(43deg, #527039 0%, #83a36f 46%, #aac784 100%)",
-  'dark' : "linear-gradient(43deg, #6f7e8d 0%, #4c6683 46%, #3a526b 100%",
+  'dark' : "linear-gradient(43deg, #6f7e8d 0%, #4c6683 46%, #3a526b 100%)",
   'dragon' : "linear-gradient(43deg, #626e9c 0%, #4c6283 46%, #3c5087 100%)",
   'fairy' : "linear-gradient(43deg, #c089bc 0%, #ab74a7 46%, #925d8f 100%)",
   'fighting' : "linear-gradient(43deg, #9c5454 0%, #ba2f2f 46%, #912b2b 100%)",
