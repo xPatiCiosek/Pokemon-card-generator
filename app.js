@@ -63,10 +63,6 @@ async function fetchFromTwoAPIs(pokeName) {
   }
 }
 
-function changeCardStyle(type) {
-  document.getElementById('card').style.backgroundImage = gradients[type];
-}
-
 function renderMovesCard(data){
 
   const newDiv = document.createElement('div');
@@ -103,6 +99,10 @@ function renderMovesCard(data){
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function changeCardStyle(type) {
+  document.getElementById('card').style.backgroundImage = gradients[type];
 }
 
 function renderPokeCard(data){
