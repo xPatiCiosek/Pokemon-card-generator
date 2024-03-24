@@ -96,8 +96,10 @@ body{
 }
 
 .move-img{
-    height: 20px;
-    width: 20px;
+    height: 22px;
+    width: 22px;
+    border: 1px solid black;
+    border-radius: 1rem;
 }
 .move-div{
     gap: 5px;
