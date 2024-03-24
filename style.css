@@ -71,10 +71,9 @@ body{
 #messurments-container span{
     margin-right: 15px;
 }
-#hp{
+#hp, .power{
     margin-left: 15px;
 }
-
 #moves-container{
     height: 140px;
     margin-left: 25px;
@@ -95,9 +94,7 @@ body{
     margin-right: 25px;
     gap: 5px;
 }
-.power{
-    margin-left: 20px;
-}
+
 .move-img{
     height: 20px;
     width: 20px;
