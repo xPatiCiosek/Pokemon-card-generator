@@ -105,37 +105,31 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function renderPokeData(data){
-  document.getElementById('name').innerText = capitalize(data.name);
-  document.getElementById('id').innerHTML = 'pokedex nr. ' + data.id;
-  document.getElementById('hp').innerHTML = 'HP: ' + data.stats[0].base_stat;
-  document.getElementById('height').innerHTML = 'HT: ' + data.height;
-  document.getElementById('weight').innerHTML = 'WT: ' + data.weight;
-}
-
 function renderPokeCard(data){
+  function renderPokeData(data){
+    document.getElementById('name').innerText = capitalize(data.name);
+    document.getElementById('id').innerHTML = 'pokedex nr. ' + data.id;
+    document.getElementById('hp').innerHTML = 'HP: ' + data.stats[0].base_stat;
+    document.getElementById('height').innerHTML = 'HT: ' + data.height;
+    document.getElementById('weight').innerHTML = 'WT: ' + data.weight;
+  }
   renderPokeData(data);
+
+  //rendering the icon type and card color
+  function renderType(data){
+    let type = data.types[0].type.name;
+    let img = document.getElementById('type');
+    img.src = './icons/' + type + '.png';
+    //change card background color dependant on type
+    changeCardStyle(type);
+  }
   renderType(data);
+
+  function renderNewImg(data){ 
+    const img = document.getElementById('current-pokemon');
+    img.src = data.sprites.other['official-artwork'].front_default; 
+  }
   renderNewImg(data);
-}
-
-function renderMoveType(data){
-  const type = data.name;
-
-}
-
-//rendering the icon type and card color
-function renderType(data){
-  let type = data.types[0].type.name;
-  let img = document.getElementById('type');
-  img.src = './icons/' + type + '.png';
-  //change card background color dependant on type
-  changeCardStyle(type);
-}
-
-function renderNewImg(data){ 
-  const img = document.getElementById('current-pokemon');
-  img.src = data.sprites.other['official-artwork'].front_default; 
 }
 
 //remove Previous Moves Render
