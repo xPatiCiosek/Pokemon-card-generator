@@ -64,9 +64,25 @@ async function fetchFromTwoAPIs(pokeName) {
 }
 
 function renderMovesCard(data){
+  function handleNullPower(power) {
+    const element = power === null ? 'p' : 'span';
+    const powerElement = document.createElement(element);
+    
+    if (power === null) {
+      powerElement.innerText = data.effect_entries[0].short_effect;
+      powerElement.classList.add('description');
+    } else {
+      powerElement.innerText = power;
+      powerElement.classList.add('power');
+    }
+
+    return powerElement;
+  }
 
   const newDiv = document.createElement('div');
   newDiv.classList.add('move-div');
+
+  const powerElement = handleNullPower(data.power);
 
   const nameSpan = document.createElement('span');
   nameSpan.innerText = capitalize(data.name);
