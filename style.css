@@ -14,6 +14,12 @@ h1{
 #input-group{
     margin-bottom: 50px;
 }
+#input{
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 3px 8px 3px 8px;
+    margin-right: 10px;
+}
 #card {
     margin: auto;
     display: grid;
