@@ -2,6 +2,11 @@ body{
     background-image: linear-gradient(to top, #ffffff 0%, #000000 46%, #a50000 100%);
     background-size: cover; /* Cover the entire element */
     background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 }
 
 #card {
