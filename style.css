@@ -20,6 +20,15 @@ h1{
     padding: 3px 8px 3px 8px;
     margin-right: 10px;
 }
+#input-group button{
+    border-radius: 1rem;
+    padding: 3px 8px 3px 8px;
+    border: 1px solid grey;
+    background-image: linear-gradient(43deg, #c9c9c9 0%, #cccbcb 46%, #b7b7b7 100%);
+}
+#input-group button:hover{
+    background-image: linear-gradient(43deg, #aeadad 0%, #abaaaa 46%, #959393 100%);
+}
 #card {
     margin: auto;
     display: grid;
@@ -132,12 +141,6 @@ h1{
     align-self: end;
     display: flex;
     justify-content: end;
-}
-
-button{
-    border-radius: 0.2rem;
-    border: 1px solid grey;
-    background-image: linear-gradient(43deg, #c9c9c9 0%, #cccbcb 46%, #b7b7b7 100%);
 }
 
 #hidden{
