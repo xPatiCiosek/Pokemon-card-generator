@@ -162,16 +162,23 @@ function getMoves(data){
 }
 
 function btnInit() {
+  const cardDisplay = document.getElementById('hidden');
 
   function handleSearchBtnClick() {
     let input = document.getElementById('input');
     fetchFromTwoAPIs(input.value);
+    setTimeout(() => {
+      cardDisplay.style.display = 'block';
+    }, 1000); 
     input.value = '';
   }
 
   function handleRandomBtnClick() {
     const num = Math.floor(Math.random() * 1025) + 1;
     fetchFromTwoAPIs(num);
+    setTimeout(() => {
+      cardDisplay.style.display = 'block';
+    }, 1000); 
   }
 
   document.getElementById('search-btn').addEventListener('click', handleSearchBtnClick);
