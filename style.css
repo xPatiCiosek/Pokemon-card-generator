@@ -124,3 +124,6 @@ button{
     background-image: linear-gradient(43deg, #c9c9c9 0%, #cccbcb 46%, #b7b7b7 100%);
 }
 
+#hidden{
+    display: none;
+}
