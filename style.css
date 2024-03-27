@@ -8,7 +8,12 @@ body{
     align-items: center;
     height: 100vh;
 }
-
+h1{
+    margin-top: 50px;
+}
+#input-group{
+    margin-bottom: 50px;
+}
 #card {
     margin: auto;
     display: grid;
