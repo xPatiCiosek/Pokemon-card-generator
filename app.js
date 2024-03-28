@@ -46,10 +46,13 @@ async function fetchData(baseURL ,endpoint, value){
 }
 
 function handleError(){
-  const errorMessage = document.createElement('p');
-  errorMessage.classList.add('error');
-  errorMessage.innerText= "Sorry..., we dont recognise this Pokémon, please check your spelling and try again!";
-  inputGroup.appendChild(errorMessage);
+  const error = inputGroup.querySelector('p');
+  if (!error){
+    const errorMessage = document.createElement('p');
+    errorMessage.classList.add('error');
+    errorMessage.innerText= "Sorry..., we dont recognise this Pokémon, please check your spelling and try again!";
+    inputGroup.appendChild(errorMessage);
+  }
 }
 
 function handleOkResponse(){
