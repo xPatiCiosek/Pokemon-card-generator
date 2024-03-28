@@ -19,6 +19,9 @@ const gradients = {
   'water' : "linear-gradient(43deg, #325d83 0%, #1c517f 46%, #537ca0 100%)"
 }
 const movesContainer = document.getElementById('moves-container');
+const cardDisplay = document.getElementById('hidden');
+let input = document.getElementById('input');
+const inputGroup = document.getElementById('input-group');
 const baseURL = `https://pokeapi.co/api/v2/`;
 const POKEMON = 'pokemon/';
 const MOVE = 'move/';
@@ -40,6 +43,14 @@ async function fetchData(baseURL ,endpoint, value){
       console.error('Error fetching data:', error);
       throw error;
   }
+}
+function handleOkResponse(){
+  const error = inputGroup.querySelector('p');
+  if (error){
+    inputGroup.removeChild(error);
+  }
+  input.value = '';
+  showCard();
 }
 
 async function fetchFromTwoAPIs(pokeName) {
@@ -172,15 +183,9 @@ function showCard(){
 }
 
 function btnInit() {
-  const cardDisplay = document.getElementById('hidden');
 
   function handleSearchBtnClick() {
-    let input = document.getElementById('input');
     fetchFromTwoAPIs(input.value);
-    setTimeout(() => {
-      cardDisplay.style.display = 'block';
-    }, 1000); 
-    input.value = '';
   }
 
   function handleRandomBtnClick() {
