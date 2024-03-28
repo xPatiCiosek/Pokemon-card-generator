@@ -48,7 +48,7 @@ async function fetchData(baseURL ,endpoint, value){
 function handleError(){
   const errorMessage = document.createElement('p');
   errorMessage.classList.add('error');
-  errorMessage.innerText= "Sorry we dont recognise this Pokemon, please check your spelling and try again!";
+  errorMessage.innerText= "Sorry..., we dont recognise this Pokémon, please check your spelling and try again!";
   inputGroup.appendChild(errorMessage);
 }
 
