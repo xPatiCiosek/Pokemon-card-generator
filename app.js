@@ -26,10 +26,14 @@ const MOVE = 'move/';
 async function fetchData(baseURL ,endpoint, value){
   try {
     const url = new URL(`${baseURL}${endpoint}${value}`);
-
     const response = await fetch(url);
+
+    //error handling
     if (!response.ok) {
+        handleError();
         throw new Error(`HTTP error! Status: ${response.status}`);
+    } else{
+      handleOkResponse();
     }
     return await response.json();
   } catch (error) {
