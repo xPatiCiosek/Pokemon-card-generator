@@ -165,6 +165,12 @@ function getMoves(data){
   return moves;
 }
 
+function showCard(){
+  setTimeout(() => {
+    cardDisplay.style.display = 'block';
+  }, 1000); 
+}
+
 function btnInit() {
   const cardDisplay = document.getElementById('hidden');
 
@@ -180,9 +186,7 @@ function btnInit() {
   function handleRandomBtnClick() {
     const num = Math.floor(Math.random() * 1025) + 1;
     fetchFromTwoAPIs(num);
-    setTimeout(() => {
-      cardDisplay.style.display = 'block';
-    }, 1000); 
+    showCard();
   }
 
   document.getElementById('search-btn').addEventListener('click', handleSearchBtnClick);
