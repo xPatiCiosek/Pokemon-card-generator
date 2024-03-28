@@ -5,7 +5,7 @@ body{
     height: 100vh;
 }
 #container{
-    height:730px ;
+    height:750px ;
     width:470px ;
     margin: auto;
     background-color: black;
@@ -22,7 +22,6 @@ h1{
     font-family: "Pokémon Solid", sans-serif;
 }
 #input-group{
-    margin-bottom: 50px;
     width: 370px;
 }
 #input{
@@ -161,6 +160,7 @@ h1{
 
 #hidden{
     display: none;
+    margin: auto;
 }
 .error{
     background-color: #ecb7b7;
