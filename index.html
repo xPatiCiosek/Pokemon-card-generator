@@ -7,35 +7,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pokemon Card Generator</h1>
-    <div id="input-group">
-        <input id="input" type="text" placeholder="Search by Pokemon name or id...">
-        <button id="search-btn">Search</button>
-        <button id="random-btn">Random</button>
-    </div>
-    <div id="hidden">
-        <main id="card">
-            <div id="card-header">
-                <span id="name"> </span>
-            </div>
-            
-            <div id="img-container">
-                <img id="current-pokemon" alt="current Pokemon">
-                <img id="type" alt="Pokemon type">
-            </div>
-
-            <div id="messurments-container">
-                <span id="hp"></span>
-                <div>
-                    <span id="height"></span>
-                    <span id="weight"></span>
+    <div id="container">
+        <h1>Pokémon Card Generator</h1>
+        <div id="input-group">
+            <input id="input" type="text" placeholder="Search by Pokemon name or id...">
+            <button id="search-btn">Search</button>
+            <button id="random-btn">Random</button>
+        </div>
+        <div id="hidden">
+            <main id="card">
+                <div id="card-header">
+                    <span id="name"> </span>
                 </div>
-            </div>
-            <div id="moves-container"></div>
-            <div id="card-footer">
-                <div id="id"></div>
-            </div>
-        </main>
+                
+                <div id="img-container">
+                    <img id="current-pokemon" alt="current Pokemon">
+                    <img id="type" alt="Pokemon type">
+                </div>
+
+                <div id="messurments-container">
+                    <span id="hp"></span>
+                    <div>
+                        <span id="height"></span>
+                        <span id="weight"></span>
+                    </div>
+                </div>
+                <div id="moves-container"></div>
+                <div id="card-footer">
+                    <div id="id"></div>
+                </div>
+            </main>
+        </div>
     </div>
     
     <script src="app.js"></script>
